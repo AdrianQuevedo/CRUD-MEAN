@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col s5">
+      <div class="card">
+        <div class="card-content">
+          <form #userForm="ngForm" (ngSubmit)="addUser(userForm)">
+            <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="name" #name="ngModel" [(ngModel)]="userService.selectedUser.name" placeholder="Ingresa tu nombre">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="position" #name="ngModel" [(ngModel)]="userService.selectedUser.position" placeholder="Ingresa tu posición">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="office" #name="ngModel" [(ngModel)]="userService.selectedUser.office" placeholder="Ingresa tu officina">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="salary" #name="ngModel" [(ngModel)]="userService.selectedUser.salary" placeholder="Ingresa tu salario">
+                </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col s7">
+
+    </div>
+  </div>
+</div>
