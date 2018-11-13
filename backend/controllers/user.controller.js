@@ -10,7 +10,12 @@ userController.getUsers = async (req, res) => {
 
 userController.createUser = async (req, res) => {
     console.log(req.body);
-    const user = new User(req.body);
+    const user = new User({
+        name: req.body.name,
+        position: req.body.position,
+        office: req.body.office,
+        salary: req.body.salary,
+    });
     await user.save();
     res.json({
         'status': 'Empleado guardado'
@@ -35,7 +40,7 @@ userController.editUser = async (req, res) => {
 };
 
 userController.deleteUser = async (req,res) => {
-    await User.findByIdAndRemove(req.params.id);
+    await User.findOneAndDelete(req.params._id);
     res.json({
         status: 'Usuario Eliminado.'
     });

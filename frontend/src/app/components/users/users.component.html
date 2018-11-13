@@ -4,24 +4,25 @@
       <div class="card">
         <div class="card-content">
           <form #userForm="ngForm" (ngSubmit)="addUser(userForm)">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userService.selectedUser._id">
             <div class="row">
                 <div class="input-field col s12">
                   <input type="text" name="name" #name="ngModel" [(ngModel)]="userService.selectedUser.name" placeholder="Ingresa tu nombre">
                 </div>
-            </div>
-            <div class="row">
                 <div class="input-field col s12">
                   <input type="text" name="position" #name="ngModel" [(ngModel)]="userService.selectedUser.position" placeholder="Ingresa tu posición">
                 </div>
-            </div>
-            <div class="row">
                 <div class="input-field col s12">
                   <input type="text" name="office" #name="ngModel" [(ngModel)]="userService.selectedUser.office" placeholder="Ingresa tu officina">
                 </div>
-            </div>
-            <div class="row">
                 <div class="input-field col s12">
                   <input type="text" name="salary" #name="ngModel" [(ngModel)]="userService.selectedUser.salary" placeholder="Ingresa tu salario">
+                </div>
+                <div class="card-action">
+                  <div class="input-field col s12">
+                    <button class="btn right">Save</button>
+                    <button class="btn" (click)="resetForm(userForm)">Clean</button>
+                  </div>
                 </div>
             </div>
           </form>
@@ -29,7 +30,29 @@
       </div>
     </div>
     <div class="col s7">
-
+      <table>
+        <thead>
+          <th>Nombre</th>
+          <th>Posición</th>
+          <th>Oficina</th>
+          <th>operaciones</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of userService.users">
+            <td>{{ user.name }}</td>
+            <td>{{ user.position }}</td>
+            <td>{{ user.office }}</td>
+            <td>
+              <a (click)="editUser(user)">
+                <i class="material-icons">edit</i>
+              </a>
+              <a (click)="deleteUser(user._id)">
+                  <i class="material-icons">delete</i>
+                </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

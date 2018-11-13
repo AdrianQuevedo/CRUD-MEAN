@@ -10,14 +10,14 @@ export class UserService {
 
   selectedUser: User;
   users: User[];
-  readonly URL_API = 'http://localhost:3000/api/user';
+  readonly URL_API = 'http://localhost:3000/api/users';
 
   constructor(private http: HttpClient) {
     this.selectedUser = new User();
   }
 
   getUsers() {
-    return this.http.get(this.URL_API).subscribe();
+    return this.http.get(this.URL_API);
   }
 
   postUser(user: User) {
@@ -28,8 +28,8 @@ export class UserService {
     return this.http.put(this.URL_API + `/${user._id}`, user);
   }
 
-  deleteUser(user: User) {
-    return this.http.delete(this.URL_API + `/${user._id}`);
+  deleteUser(_id: string) {
+    return this.http.delete(this.URL_API + `/${_id}`);
   }
 
 
