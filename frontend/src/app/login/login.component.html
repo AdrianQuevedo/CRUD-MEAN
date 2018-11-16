@@ -1,0 +1,24 @@
+<div class="row" style="margin-top: 13%">
+  <div class="col s4 offset-s4" style="padding-left: 5%; padding-right: 5%">
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title" style="text-align: center">Iniciar Sesión</span>
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+          <div class="row">
+            <div class="input-field col s10 offset-s1">
+              <i class="material-icons">perm_identity</i>
+              <input type="text" name="user" placeholder="Usuario">
+            </div>
+            <div class="input-field col s10 offset-s1">
+                <i class="material-icons">lock</i>
+                <input type="password" name="password" placeholder="Contraseña">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="card_action" style="padding-left: 40%; padding-top: 10px; padding-bottom: 20px">
+          <a class="waves-effect waves-light btn" style="background-color: steelblue"(click)="login()">Ingresar</a>
+      </div>
+    </div>
+  </div>
+</div>
